@@ -9,7 +9,7 @@ class Equipo extends MasterTable{
 				'nombre', 
 				'foto', 
 				'comentario', 
-				'categoria_id', 
+				'categoria_id',  
 				
 		);
 		$this->level = 1;
