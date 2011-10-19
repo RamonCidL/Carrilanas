@@ -1,6 +1,6 @@
 <?php
 require_once(LIB_DIR .'MasterTable.php');
-class Equipo extends MasterTable{
+class Miembro extends MasterTable{
 	function __construct() {
 		$this->table        = 'miembro';
 		$this->formTemplate = 'miembroForm.tpl';
