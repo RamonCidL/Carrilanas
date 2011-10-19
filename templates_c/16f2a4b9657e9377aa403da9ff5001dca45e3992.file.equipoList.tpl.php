@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-18 10:52:43
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-19 10:16:05
          compiled from "templates\equipoList.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17894e9d3e5bee10b8-89373733%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '16f2a4b9657e9377aa403da9ff5001dca45e3992' => 
     array (
       0 => 'templates\\equipoList.tpl',
-      1 => 1318927848,
+      1 => 1318938752,
       2 => 'file',
     ),
   ),

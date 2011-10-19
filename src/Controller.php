@@ -1,6 +1,7 @@
 <?php
 require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Equipo.php');
+require(SRC_DIR . 'Carrera.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
@@ -11,6 +12,7 @@ class Controller extends BasicController{
 		$this->assign('opciones', array(
 			'Inicio'=>'inicio',
 			'Equipos'=>'equipo',
+			'Carreras' =>'carrera',
 			'Usuarios'=>'usuario',
 			'Login'=>'login',
 			'Logout'=>'logout'
@@ -28,6 +30,9 @@ class Controller extends BasicController{
 		switch($this->view){
 		case 'equipo':
 			$object = new Equipo;
+			break;
+		case 'carrera':
+			$object = new Carrera;
 			break;
 		case 'usuario':
 			$object = new Usuario; 

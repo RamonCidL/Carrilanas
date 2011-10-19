@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-10 11:18:31
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-19 10:18:39
          compiled from "templates\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:25144e92b867160539-87974990%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:200734e9e87df5340d3-20384046%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20a5b87bf1d249a8e4b5bdf6dc560aa9c65c681a' => 
     array (
       0 => 'templates\\header.tpl',
-      1 => 1318142152,
+      1 => 1319012315,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25144e92b867160539-87974990',
+  'nocache_hash' => '200734e9e87df5340d3-20384046',
   'function' => 
   array (
   ),
@@ -24,7 +24,7 @@ $_smarty_tpl->decodeProperties(array (
  echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <body <?php if ($_smarty_tpl->getVariable('nivel_usuario')->value=="10"){?>style="background-color:yellow;"<?php }?>>
 <div style="text-align:center;">
-<h1>Facturación</h1>
+<h1></h1>
 </div>
 <?php if ($_smarty_tpl->getVariable('nivel_usuario')->value>0){?>Usuario: <?php echo $_smarty_tpl->getVariable('nombre_usuario')->value;?>
  (Nivel: <?php echo $_smarty_tpl->getVariable('nivel_usuario')->value;?>
