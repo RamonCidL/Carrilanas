@@ -2,6 +2,7 @@
 require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Equipo.php');
 require(SRC_DIR . 'Carrera.php');
+require(SRC_DIR . 'Miembro.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
@@ -13,6 +14,7 @@ class Controller extends BasicController{
 			'Inicio'=>'inicio',
 			'Equipos'=>'equipo',
 			'Carreras' =>'carrera',
+			'Miembros' =>'miembro',
 			'Usuarios'=>'usuario',
 			'Login'=>'login',
 			'Logout'=>'logout'
@@ -33,6 +35,9 @@ class Controller extends BasicController{
 			break;
 		case 'carrera':
 			$object = new Carrera;
+			break;
+		case 'miembro':
+			$object = new Miembro;
 			break;
 		case 'usuario':
 			$object = new Usuario; 
