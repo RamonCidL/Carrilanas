@@ -1,7 +1,7 @@
 <?php
 require(LIB_DIR . 'BasicController.php');
 
-require(SRC_DIR . 'Prueba.php');
+
 
 
 require(SRC_DIR . 'Equipo.php');
@@ -17,7 +17,6 @@ class Controller extends BasicController{
 		$this->assign('opciones', array(
 			'Inicio'=>'inicio',
 			'Equipos'=>'equipo',
-			'Probar' => 'prueba',
 			'Carreras' =>'carrera',
 			'Miembros' =>'miembro',
 			'Usuarios'=>'usuario',
@@ -44,9 +43,7 @@ class Controller extends BasicController{
 		case 'miembro':
 			$object = new Miembro;
 			break;
-		case 'prueba':
-			$object = new Prueba; 
-			break;
+		
 		case 'usuario':
 			$object = new Usuario; 
 			break;

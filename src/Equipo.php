@@ -17,7 +17,7 @@ class Equipo extends MasterTable{
 	}
 	function getTable(){
 		$ret = '{' ;
-		if($_SESSION['nivel_usuario'] > 5){
+		if($_SESSION['nivel'] > 5){
 			$ret .= ' "add"      : "true"';
 			$ret .= ',"edit"     : "true"';
 			$ret .= ',"delete"   : "true"';
@@ -42,24 +42,25 @@ class Equipo extends MasterTable{
 		return '{
 			"colModel" : [
 				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
-			
-			
 				{"type":"image", "display": "Foto", "value" : "foto","width" : 25 },
-					{
+				{
 					"type"     : "textarea"     , 
 					"display"  : "Comentarios"  ,     
 					"value"    : "comentario"   ,     
 					"width"    : 50             , 
 					"height"   : 2 
 				},
-					{
-					"type"     : "textarea"     , 
-					"display"  : "Comentarios"  ,     
-					"value"    : "comentario"   ,     
-					"width"    : 50             , 
-					"height"   : 2 
-				},
-				{"type":"text", "display": "Categoria",   "value" : "categoria",   "width" : 150 }
+				{
+					"type"       :"lookup"       , 
+					"display"    :"Categoria"      ,   
+					"value"      :"categoria_id"   ,
+					"width"      : 5             , 
+					"id"         :"idDelUsuario" ,
+					"database"   :"carrilana"   ,
+					"table"      :"categoria"      ,
+					"fieldSearch":"nombre"       ,
+					"fieldRet"   :"id"
+				}
 			]
 		}';
 	}
