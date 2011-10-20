@@ -15,6 +15,54 @@ class Equipo extends MasterTable{
 		$this->level = 1;
 		parent::__construct();
 	}
+	function getTable(){
+		$ret = '{' ;
+		if($_SESSION['nivel_usuario'] > 5){
+			$ret .= ' "add"      : "true"';
+			$ret .= ',"edit"     : "true"';
+			$ret .= ',"delete"   : "true"';
+		}else{
+			$ret .= ' "add"      : "false"';
+			$ret .= ',"edit"     : "false"';
+			$ret .= ',"delete"   : "false"';
+		}
+		$ret .= ',
+			"colModel" : [
+				
+				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
+				{"display": "Foto",            "name" : "foto",           "width" : 250 },
+				{"display": "Comentario",      "name" : "comentario",     "width" : 250 },
+				{"display": "Categoria",       "name" : "categoria_id",   "width" : 250 }
+				
+			]
+		}';
+		return $ret;
+	}
+	function getForm(){
+		return '{
+			"colModel" : [
+				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
+			
+			
+				{"type":"image", "display": "Foto", "value" : "foto","width" : 25 },
+					{
+					"type"     : "textarea"     , 
+					"display"  : "Comentarios"  ,     
+					"value"    : "comentario"   ,     
+					"width"    : 50             , 
+					"height"   : 2 
+				},
+					{
+					"type"     : "textarea"     , 
+					"display"  : "Comentarios"  ,     
+					"value"    : "comentario"   ,     
+					"width"    : 50             , 
+					"height"   : 2 
+				},
+				{"type":"text", "display": "Categoria",   "value" : "categoria",   "width" : 150 }
+			]
+		}';
+	}
 
 	function isValidForm($formvars) {
 		$this->error = null;
