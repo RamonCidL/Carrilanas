@@ -1,9 +1,5 @@
 <?php
 require(LIB_DIR . 'BasicController.php');
-
-
-
-
 require(SRC_DIR . 'Equipo.php');
 require(SRC_DIR . 'Carrera.php');
 require(SRC_DIR . 'Miembro.php');
