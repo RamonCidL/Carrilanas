@@ -30,7 +30,7 @@ class Miembro extends MasterTable{
 		}
 		$ret .= ',
 			"colModel" : [
-				{"display": "Id",              "name" : "id",             "width" : 40  },
+				
 				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
 				{"display": "Foto",            "name" : "foto",           "width" : 250 },
 				{"display": "Contraseña",      "name" : "password",       "width" : 150 },

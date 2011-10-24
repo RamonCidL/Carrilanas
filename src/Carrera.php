@@ -12,7 +12,7 @@ class Carrera extends MasterTable{
 				'mapaRecorrido', 
 				'comoLlegar',
 				'prediccionTiempo',
-				'comentario',
+				'comentario'
 				
 		);
 		$this->level = 1;
@@ -32,13 +32,13 @@ class Carrera extends MasterTable{
 		$ret .= ',
 			"colModel" : [
 				
-				{"display": "lugar",            "name" : "lugar",           "width" : 150 },
-				{"display": "Fecha",            "name" : "fecha",           "width" : 250 },
-				{"display": "Distancia",        "name" : "distancia",       "width" : 250 },
-				{"display": "MapaRecorrido",    "name" : "Maparecorrido",   "width" : 250 },
-				{"display": "ComoLlegar",       "name" : "comollegar",      "width" : 250 },
-				{"display": "PrediccionTiempo", "name" : "predicciontiempo","width" : 250 },
-				{"display": "Comentario",       "name" : "comentario",      "width" : 250 }
+				{"display": "Lugar",             "name" : "lugar",           "width" : 150 },
+				{"display": "Fecha",             "name" : "fecha",           "width" : 250 },
+				{"display": "Distancia",         "name" : "distancia",       "width" : 250 },
+				{"display": "Mapa recorrido",    "name" : "mapaRecorrido",   "width" : 250 },
+				{"display": "Como llegar",       "name" : "comoLlegar",      "width" : 250 },
+				{"display": "Prediccion tiempo", "name" : "prediccionTiempo","width" : 250 },
+				{"display": "Comentario",        "name" : "comentario",      "width" : 250 }
 			]
 		}';
 		return $ret;
@@ -46,19 +46,19 @@ class Carrera extends MasterTable{
 	function getForm(){
 		return '{
 			"colModel" : [
-				{"type":"text",  "display": "Lugar",           "value" : "lugar",   		  "width" : 150 },
-				{"type":"date",  "display": "Fecha",    	   "value" : "fecha",             "width" : 250 },
-				{"type":"text",  "display": "Distancia",       "value" : "distancia",    	  "width" : 25 },
-				{"type":"image", "display": "Mapareccorido",   "value" : "maparecorrido",     "width" : 25 }
-				{"type":"text",  "display": "MComoLlegar",     "value" : "comollegar",   	  "width" : 25 },
-				{"type":"text",  "display": "PrediccionTiempo","value" : "predicciontiempo",  "width" : 25 },
-				{
+				{"type":"text",  "display": "Lugar",             "value" : "lugar",   		    "width" : 150 },
+				{"type":"date",  "display": "Fecha",    	     "value" : "fecha",             "width" : 250 },
+				{"type":"text",  "display": "Distancia",         "value" : "distancia",    	    "width" : 25 },
+				{"type":"image", "display": "Mapa recorrido",    "value" : "mapaRecorrido",     "width" : 25 },
+				{"type":"text",  "display": "Como llegar",       "value" : "comoLlegar",   	    "width" : 25 },
+				{"type":"text",  "display": "Prediccion tiempo", "value" : "prediccionTiempo",  "width" : 25 },
+				{ 
 					"type"     : "textarea"     , 
 					"display"  : "Comentarios"  ,     
 					"value"    : "comentario"   ,     
 					"width"    : 50             , 
 					"height"   : 2 
-				},
+				}
 				
 			]
 		}';
