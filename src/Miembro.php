@@ -11,7 +11,7 @@ class Miembro extends MasterTable{
 				'password', 
 				'telefono',
 				'correo',
-				'equipo_id',  
+				'equipo_id'  
 				
 		);
 		$this->level = 1;
@@ -33,8 +33,8 @@ class Miembro extends MasterTable{
 				{"display": "Id",              "name" : "id",             "width" : 40  },
 				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
 				{"display": "Foto",            "name" : "foto",           "width" : 250 },
-				{"display": "Password",        "name" : "password",       "width" : 150 },
-				{"display": "Telefono",        "name" : "teléfono",       "width" : 250 },
+				{"display": "Contraseña",      "name" : "password",       "width" : 150 },
+				{"display": "Teléfono",        "name" : "telefono",       "width" : 250 },
 				{"display": "Correo",      	   "name" : "correo",         "width" : 250 },
 				{"display": "Equipo",          "name" : "equipo_id",      "width" : 250 }
 				
@@ -45,11 +45,11 @@ class Miembro extends MasterTable{
 	function getForm(){
 		return '{
 			"colModel" : [
-				{"type":"text",  "display": "Nombre",   "value" : "nombre","width" : 150 },
-				{"type":"image", "display": "Foto",     "value" : "foto","width" : 25 },
-				{"type":"image", "display": "Password", "value" : "password","width" : 25 },
-				{"type":"image", "display": "Telefono", "value" : "telefono","width" : 25 },
-				{"type":"image", "display": "Correo",   "value" : "correo","width" : 25 },
+				{"type":"text",     "display": "Nombre",   "value" : "nombre","width" : 150 },
+				{"type":"image",    "display": "Foto",     "value" : "foto","width" : 25 },
+				{"type":"password", "display": "Password", "value" : "password","width" : 25 },
+				{"type":"text",     "display": "Telefono", "value" : "telefono","width" : 25 },
+				{"type":"text",     "display": "Correo",   "value" : "correo","width" : 25 },
 				{
 					"type"       :"lookup"       , 
 					"display"    :"Equipo"      ,   
@@ -60,7 +60,7 @@ class Miembro extends MasterTable{
 					"table"      :"equipo"      ,
 					"fieldSearch":"nombre"       ,
 					"fieldRet"   :"id"
-				},
+				}
 		
 				
 			]
