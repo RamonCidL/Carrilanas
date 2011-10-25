@@ -7,6 +7,7 @@ require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
 require(SRC_DIR . 'Rechazo.php');
+require(SRC_DIR . 'Piloto.php');
 class Controller extends BasicController{
 	function __construct() {
 		parent::__construct();
@@ -16,6 +17,7 @@ class Controller extends BasicController{
 			'Carreras' =>'carrera',
 			'Miembros' =>'miembro',
 			'Usuarios'=>'usuario',
+			'Pilotos' => 'piloto',
 			'Login'=>'login',
 			'Logout'=>'logout'
 		));
@@ -30,6 +32,7 @@ class Controller extends BasicController{
 			//decide cambiar o no de vista, segun permisos
 		}
 		switch($this->view){
+		
 		case 'equipo':
 			$object = new Equipo;
 			break;
@@ -38,6 +41,10 @@ class Controller extends BasicController{
 			break;
 		case 'miembro':
 			$object = new Miembro;
+			break;
+			
+		case 'piloto':
+			$object = new Piloto; 
 			break;
 		
 		case 'usuario':

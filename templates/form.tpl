@@ -1,26 +1,21 @@
 <form action="{$SCRIPT_NAME}?action=submit" method="post" enctype='multipart/form-data'>
 	<table border="0">
-		{if $error ne ""}
-			<tr>
+		{foreach from=$errors item="error"}
+		<tr>
 			<td bgcolor="yellow" colspan="2">
-				{if $error eq "nombre_empty"}
-					Se necesita un nombre
-				{elseif $error eq "apellidos_empty"}
-					Los apellidos no pueden estar vacíos 
-				{elseif $error eq "dni_empty"}
-					El DNI no puede estar vacío 
-				{elseif $error eq "telefono_empty"}
-					El teléfono no puede estar vacío 
-				{/if}
+				{$error}
 			</td>
-			</tr>
-		{/if}
+		</tr>
+		{/foreach}
 	</table>
 	{foreach from=$data->colModel item="col"}
+		{if $col->type neq "external"}
+			<br />
+		{/if}
 		{if $col->type eq "text"}
 			{$col->display}: <input name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "password"}
-			{$col->display}: <input type= "password" name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
+			{$col->display}: <input type="password" name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "date"}
 			{$col->display}: <input class="date" name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "image"}
@@ -34,6 +29,8 @@
 			<select name="{$col->value|escape}">
 			   {html_options values=$col->options output=$col->options selected="{$formVars.{$col->value}|escape}"}
 		   </select>
+		{elseif $col->type eq "masterId"}
+			<input type="hidden" name="{$col->value}" value="{$masterId}" />
 		{elseif $col->type eq "lookup"}
 			{$col->display}:
 			<input
@@ -41,24 +38,28 @@
 				class = "lookup"
 				size= "{$col->width}"
 				name="{$col->value}"           
-				id = "lookup_{$col->value}"
+				id = "{$col->value}"
 				value="{$formVars.{$col->value}|escape}" 
 				database="{$col->database}"
 				table="{$col->table}"
 				fieldSearch="{$col->fieldSearch}"
+				filterField="{$col->filterField|default:''}"
+				filterValue="{${$col->filterValue}|default:''}"
 				fieldRet="{$col->fieldRet}"
-				>
+				/>
 		{elseif $col->type eq "external"}
 			<div
+				style="display:inline;"
 				class="externalField"
 				database="{$col->database}"
 				table="{$col->table}"
-				value_id="lookup_{$col->value_id}" 
+				value_id="{$col->value_id}" 
 				fieldRet="{$col->fieldRet}"
-			></div>
+				id="lookup_{$col->value_id}"
+			>&nbsp;</div>
 		{/if}
-		<br /> 
 	{/foreach}
+	<br />
 	<input type="submit" value="Enviar" />
 	<input type="reset" value="Reset" />
 	<input type="hidden" name="id" value="{$formVars.id}" />

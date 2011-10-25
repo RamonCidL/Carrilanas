@@ -3,8 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Miembro extends MasterTable{
 	function __construct() {
 		$this->table        = 'miembro';
-		$this->formTemplate = 'miembroForm.tpl';
-		$this->listTemplate = 'miembroList.tpl';
+		
 		$this->fields= array(
 				'nombre', 
 				'foto', 
@@ -31,12 +30,12 @@ class Miembro extends MasterTable{
 		$ret .= ',
 			"colModel" : [
 				
-				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
-				{"display": "Foto",            "name" : "foto",           "width" : 250 },
-				{"display": "Contraseña",      "name" : "password",       "width" : 150 },
-				{"display": "Teléfono",        "name" : "telefono",       "width" : 250 },
-				{"display": "Correo",      	   "name" : "correo",         "width" : 250 },
-				{"display": "Equipo",          "name" : "equipo_id",      "width" : 250 }
+				{"type":"text","display": "Nombre",          "name" : "nombre",         "width" : 150 },
+				{"type":"text","display": "Foto",            "name" : "foto",           "width" : 250 },
+				{"type":"password","display": "Contraseña",      "name" : "password",       "width" : 150 },
+				{"type":"text","display": "Teléfono",        "name" : "telefono",       "width" : 250 },
+				{"type":"text","display": "Correo",      	   "name" : "correo",         "width" : 250 },
+				{"type":"text","display": "Equipo",          "name" : "equipo_id",      "width" : 250 }
 				
 			]
 		}';

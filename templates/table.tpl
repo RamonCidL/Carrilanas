@@ -1,10 +1,14 @@
 <form action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
-<select name="orderField">
-	{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ='id'}
-</select>
-<input type="submit" value="Ordenar">
+	<select name="orderField">
+		{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ='id'}
+	</select>
+	<input type="text" name="valueSearch" />
+	<input type="submit" value="Ordenar">
 </form>
 <table border="0" >
+{if $detailView != ''}
+	<th bgcolor="#d1d1d1">&nbsp;</th>
+{/if}
 	{foreach from=$data->colModel item="col"}
 		<th bgcolor="#d1d1d1">{$col->display}</th>
 	{/foreach}
@@ -16,13 +20,19 @@
 {/if}
 	{foreach from=$records item="record"}
 		<tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
-        <td><a href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
-			<button>&darr;</button>
-			</a>
-		</td>
+		{if $detailView != ''}
+			<td><a href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
+				<button>&darr;</button>
+				</a>
+			</td>
+		{/if}
 			{foreach from=$data->colModel item="col"}
 				<td>
-					{$record.{$col->name}|escape}
+					{if $col->type eq "image"}
+						<img src="images/{$record.{$col->name}|escape}"></img>
+					{else}
+						{$record.{$col->name}|escape}
+					{/if}
 				</td>        
 			{/foreach}
 			{if $data->edit eq "true"}

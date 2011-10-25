@@ -20,6 +20,13 @@ $connection = mysql_pconnect($dbhost, $dbuser, $dbpass)
 
 $database    = $_GET['database'];
 $table       = $_GET['table'];
+if(isset($_GET['filterField'])){
+	$filterField = $_GET['filterField'];
+	$filterValue = $_GET['filterValue'];
+}else{
+	$filterField = '';
+	$filterValue = '';
+}
 $fieldSearch = explode(",",$_GET['fieldSearch']);
 $valueSearch = '%';
 $valueSearch.= $_GET['term'];
@@ -28,10 +35,16 @@ $fieldRet    = $_GET['fieldRet'];
 
 mysql_select_db($database, $connection);
 $query_conexion = "SELECT * FROM ". $table . "  WHERE "; 
+if($filterField != ''){
+	$query_conexion .= $filterField . " = " . $filterValue;
+	$query_conexion.= " AND ";
+}
+$query_conexion.= " (";
 foreach($fieldSearch as $field){
 	$query_conexion .= $field . " LIKE '" . $valueSearch ."' OR ";
 }
 $query_conexion=substr($query_conexion,0, -3);//quitamos el último OR 
+$query_conexion.= ")";
 $conexion = mysql_query($query_conexion, $connection) or die(mysql_error());
 $row = mysql_fetch_assoc($conexion);
 
@@ -40,7 +53,11 @@ $result = array();
 do {
 	$label= '';
 	foreach($fieldSearch as $field){
-		$label.= $row[$field] . ", ";	
+		if($field == "image"){
+			$label.= '<img src="images/'.$row[$field].'"></img>, ';	
+		}else{
+			$label.= $row[$field] . ", ";	
+		}
 	}
 	$label=substr($label,0, -2);//quitamos la última coma 
 	array_push(

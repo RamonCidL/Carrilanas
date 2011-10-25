@@ -2,7 +2,7 @@
 class Table{
 	var $pdo = null;
 	var $tpl = null;
-	var $error = null;
+	var $errors = null;
 	var $fromRec = 0;
 	var $recsByPage = 5;
 	var $formTemplate = '';
@@ -16,7 +16,9 @@ class Table{
 	var $fields = array();
 	var $level= 0;
 	var $orderField= 'id';
+	var $valueSearch= '';
 	var $detailView = '';
+	var $masterView='';
 
 	function __construct() {
 		global $dbtype;
@@ -32,6 +34,12 @@ class Table{
 		}	
 		if($this->listTable == ''){
 			$this->listTable = $this->table;
+		}
+		if($this->formTemplate== ''){
+			$this->formTemplate= 'basicForm.tpl'; 
+		}
+		if($this->listTemplate== ''){
+			$this->listTemplate= 'basicList.tpl'; 
 		}
 		if(!isset($_SESSION)){
 			session_start();
@@ -84,6 +92,7 @@ class Table{
 		switch($this->action) {
 		case 'orderBy':
 			$this->orderField=$_REQUEST['orderField']; 
+			$this->valueSearch=$_REQUEST['valueSearch']; 
 			$this->displayList($this->getRecords());        
 			break;
 		case 'goFirst':
@@ -197,7 +206,7 @@ class Table{
 			$this->tpl->assign('db_action','update');
 		}
 
-		$this->tpl->assign('error', $this->error);
+		$this->tpl->assign('errors', $this->errors);
 		if(isset($this->templateData[$this->formTemplate])){
 		//	$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
 		}
@@ -208,6 +217,7 @@ class Table{
 		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
 		$this->tpl->assign('detailView', $this->detailView);
+		$this->tpl->assign('masterView', $this->masterView);
 		$this->tpl->assign('id',$this->id);
 		$this->tpl->assign('orderField',$this->orderField);
 		if(isset($this->templateData[$this->listTemplate])){
@@ -274,11 +284,7 @@ class Table{
 					$v[] = $_FILES[$field]['name'];
 					$uploaddir = getcwd() ."/images/";
 					$uploadfile = $uploaddir . basename($_FILES[$field]['name']);
-
-					if (move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile)) {
-					} else {
-						echo "Error subiendo el fichero";
-					}
+					move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile); 
 				}else{
 					if(is_array($formvars[$field])){
 						$v[] = implode(",", $formvars[$field]);
@@ -374,12 +380,13 @@ class Table{
 				$this->fromRec =  $_SESSION['fromRec'];
 			}
 			try {
-				$sql = $this->pdo->prepare(
-						'SELECT * FROM ' 
-						. $this->listTable 
-					.  ' ORDER BY ' . $this->orderField 
-					.  ' LIMIT ' . $this->fromRec . ',' .$this->recsByPage
-				);
+				$text= 'SELECT * FROM ' . $this->listTable;
+				if($this->valueSearch != ''){
+					$text .= " WHERE ". $this->orderField . " >= '" . $this->valueSearch . "'";
+				}
+				$text.= ' ORDER BY ' . $this->orderField;
+				$text.= ' LIMIT ' . $this->fromRec . ',' .$this->recsByPage;
+				$sql = $this->pdo->prepare($text);
 				$sql->execute();
 				$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
 

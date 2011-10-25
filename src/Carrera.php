@@ -3,9 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Carrera extends MasterTable{
 	function __construct() {
 		$this->table        = 'carrera';
-		$this->formTemplate = 'carreraForm.tpl';
-		$this->listTemplate = 'carreraList.tpl';
-		$this->fields= array(
+	    $this->fields= array(
 				'lugar', 
 				'fecha', 
 				'distancia', 
@@ -32,13 +30,13 @@ class Carrera extends MasterTable{
 		$ret .= ',
 			"colModel" : [
 				
-				{"display": "Lugar",             "name" : "lugar",           "width" : 150 },
-				{"display": "Fecha",             "name" : "fecha",           "width" : 250 },
-				{"display": "Distancia",         "name" : "distancia",       "width" : 250 },
-				{"display": "Mapa recorrido",    "name" : "mapaRecorrido",   "width" : 250 },
-				{"display": "Como llegar",       "name" : "comoLlegar",      "width" : 250 },
-				{"display": "Prediccion tiempo", "name" : "prediccionTiempo","width" : 250 },
-				{"display": "Comentario",        "name" : "comentario",      "width" : 250 }
+				{"type":"text",		"display": "Lugar",             "name" : "lugar",           "width" : 150 },
+				{"type":"date",		"display": "Fecha",             "name" : "fecha",           "width" : 250 },
+				{"type":"text",		"display": "Distancia",         "name" : "distancia",       "width" : 250 },
+				{"type":"image",	"display": "Mapa recorrido",    "name" : "mapaRecorrido",   "width" : 250 },
+				{"type":"text",		"display": "Como llegar",       "name" : "comoLlegar",      "width" : 250 },
+				{"type":"text",		"display": "Prediccion tiempo", "name" : "prediccionTiempo","width" : 250 },
+				{"type":"textarea", "display": "Comentario",        "name" : "comentario",      "width" : 250 }
 			]
 		}';
 		return $ret;
