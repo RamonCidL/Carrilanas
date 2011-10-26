@@ -3,6 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Video extends MasterTable{
 	function __construct() {
 		$this->table        = 'video';
+		$this->listTable = 'videoConMiembro';
 		$this->fields= array(
 			'titulo',
 			'video' ,
@@ -21,7 +22,7 @@ class Video extends MasterTable{
 				{"type":"text", "display": "Título",   "name" : "titulo",   "width" : 150 },
 				{"type":"text", "display": "Video",		"name" : "video",	"width" : 150 },
 				{"type":"text", "display": "Comentario", "name" : "comentario", "width" : 250 },
-				{"type":"lookup", "display": "Miembro",   "name" : "miembro_id","width" : 250 }
+				{"type":"lookup", "display": "Miembro",   "name" : "nombre","width" : 250 }
 			]
 		}';
 	}
@@ -42,6 +43,15 @@ class Video extends MasterTable{
 					"table"      :"miembro"      ,
 					"fieldSearch":"nombre"      ,
 					"fieldRet"   :"id"
+				},
+					{
+					"type"       :"external"      ,
+					"display"    :"Video"  ,             
+					"value"      :"miembro_id"          ,
+					"database"   :"carrilana"         ,
+					"table"      :"miembro"             ,
+					"value_id"   :"miembro_id"          ,
+					"fieldRet"   :"nombre"
 				}
 		
 			]
