@@ -3,7 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Foto extends MasterTable{
 	function __construct() {
 		$this->table        = 'foto';
-		$this->listTable    = '';
+		$this->listTable    = 'fotoConMiembro';
 		$this->fields= array(
 			'titulo'              ,
 			'foto'                ,
@@ -22,15 +22,15 @@ class Foto extends MasterTable{
 				{"type":"text", "display": "Título",   "name" : "titulo",   "width" : 150 },
 				{"type":"image", "display": "Foto",    "name" : "foto",     "width" : 250 },
 				{"type":"textarea", "display": "Comentario", "name" : "comentario", "width" : 250 },
-				{"type":"lookup",  "display": "Miembro",     "name" : "miembro_id",   "width" : 250 }
+				{"type":"lookup",  "display": "Miembro",     "name" : "nombre",   "width" : 250 }
 			]
 		}';
 	}
 	function getForm(){
 		return '{
 			"colModel" : [
-				{"type":"text", "display": "Título",   "name" : "titulo",   "width" : 150 },
-				{"type":"image", "display": "Foto",    "name" : "foto",     "width" : 250 },
+				{"type":"text", "display": "Título",   "value" : "titulo",   "width" : 150 },
+				{"type":"image", "display": "Foto",    "value" : "foto",     "width" : 250 },
 				{
 					"type"     : "textarea"     , 
 					"display"  : "Comentarios"  ,     
@@ -45,9 +45,18 @@ class Foto extends MasterTable{
 					"width"      : 5             , 
 					"id"         :"idDelUsuario" ,
 					"database"   :"carrilana"   ,
-					"table"      :"categoria"      ,
+					"table"      :"miembro"      ,
 					"fieldSearch":"nombre"       ,
 					"fieldRet"   :"id"
+				},
+						{
+					"type"       :"external"      ,
+					"display"    :"Foto"  ,             
+					"value"      :"miembro_id"          ,
+					"database"   :"carrilana"         ,
+					"table"      :"miembro"             ,
+					"value_id"   :"miembro_id"          ,
+					"fieldRet"   :"nombre"
 				}
 			]
 		}';

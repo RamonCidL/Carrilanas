@@ -31,7 +31,13 @@ class Video extends MasterTable{
 			"colModel" : [
 				{"type":"text", "display": "Título",   "value" : "titulo",   "width" : 150 },
 				{"type":"text", "display": "Video",		"value" : "video",		"width" : 150 },
-				{"type":"text", "display": "Comentario", "value" : "comentario", "width" : 250 },
+					{
+					"type"     : "textarea"     , 
+					"display"  : "Comentarios"  ,     
+					"value"    : "comentario"   ,     
+					"width"    : 50             , 
+					"height"   : 2 
+				},
 				
 				{
 					"type"       :"lookup"      , 
