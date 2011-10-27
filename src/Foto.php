@@ -1,6 +1,6 @@
 <?php
 require_once(LIB_DIR .'MasterTable.php');
-class Piloto extends MasterTable{
+class Foto extends MasterTable{
 	function __construct() {
 		$this->table        = 'foto';
 		$this->listTable    = '';
