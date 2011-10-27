@@ -6,6 +6,7 @@ require(SRC_DIR . 'Miembro.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
+require(SRC_DIR . 'Foto.php');
 require(SRC_DIR . 'Rechazo.php');
 require(SRC_DIR . 'video.php');
 class Controller extends BasicController{
@@ -16,6 +17,7 @@ class Controller extends BasicController{
 			'Equipos'=>'equipo',
 			'Miembros' =>'miembro',
 			'Carreras' =>'carrera',
+			'Fotos' => 'foto',
 			'Videos' => 'video',
 			'Usuarios'=>'usuario',
 			'Login'=>'login',
@@ -44,6 +46,9 @@ class Controller extends BasicController{
 			break;
 		case 'usuario':
 			$object = new Usuario; 
+			break;
+		case 'foto':
+			$object = new Foto;
 			break;
 		case 'video':
 			$object = new Video;
