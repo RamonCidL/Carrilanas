@@ -31,7 +31,7 @@ class Miembro extends MasterTable{
 			"colModel" : [
 				
 				{"type":"text","display": "Nombre",          "name" : "nombre",         "width" : 150 },
-				{"type":"text","display": "Foto",            "name" : "foto",           "width" : 250 },
+				{"type":"image","display": "Foto",            "name" : "foto",           "width" : 250 },
 				{"type":"password","display": "Contraseña",      "name" : "password",       "width" : 150 },
 				{"type":"text","display": "Teléfono",        "name" : "telefono",       "width" : 250 },
 				{"type":"text","display": "Correo",      	   "name" : "correo",         "width" : 250 },

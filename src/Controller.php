@@ -7,7 +7,6 @@ require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
 require(SRC_DIR . 'Rechazo.php');
-require(SRC_DIR . 'Piloto.php');
 require(SRC_DIR . 'video.php');
 class Controller extends BasicController{
 	function __construct() {
@@ -15,11 +14,10 @@ class Controller extends BasicController{
 		$this->assign('opciones', array(
 			'Inicio'=>'inicio',
 			'Equipos'=>'equipo',
-			'Carreras' =>'carrera',
 			'Miembros' =>'miembro',
-			'Usuarios'=>'usuario',
-			'Pilotos' => 'piloto',
+			'Carreras' =>'carrera',
 			'Videos' => 'video',
+			'Usuarios'=>'usuario',
 			'Login'=>'login',
 			'Logout'=>'logout'
 		));
@@ -44,11 +42,6 @@ class Controller extends BasicController{
 		case 'miembro':
 			$object = new Miembro;
 			break;
-			
-		case 'piloto':
-			$object = new Piloto; 
-			break;
-		
 		case 'usuario':
 			$object = new Usuario; 
 			break;
