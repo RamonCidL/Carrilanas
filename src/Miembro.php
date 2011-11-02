@@ -3,6 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Miembro extends MasterTable{
 	function __construct() {
 		$this->table        = 'miembro';
+		$this->listTable = 'miembroConEquipo';
 		
 		$this->fields= array(
 				'nombre', 
@@ -35,7 +36,7 @@ class Miembro extends MasterTable{
 				{"type":"password","display": "Contraseña",      "name" : "password",       "width" : 150 },
 				{"type":"text","display": "Teléfono",        "name" : "telefono",       "width" : 250 },
 				{"type":"text","display": "Correo",      	   "name" : "correo",         "width" : 250 },
-				{"type":"text","display": "Equipo",          "name" : "equipo_id",      "width" : 250 }
+				{"type":"text","display": "Equipo",          "name" : "equipo_nombre",      "width" : 250 }
 				
 			]
 		}';

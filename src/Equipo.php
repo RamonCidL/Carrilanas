@@ -3,6 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Equipo extends MasterTable{
 	function __construct() {
 		$this->table        = 'equipo';
+		$this->listTable    = '';
 		$this->fields= array(
 				'nombre', 
 				'foto', 

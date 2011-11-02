@@ -2,7 +2,9 @@
 require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Equipo.php');
 require(SRC_DIR . 'Carrera.php');
+require(SRC_DIR . 'Galeria.php');
 require(SRC_DIR . 'Miembro.php');
+require(SRC_DIR . 'Calendario.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
@@ -17,7 +19,9 @@ class Controller extends BasicController{
 			'Equipos'=>'equipo',
 			'Miembros' =>'miembro',
 			'Carreras' =>'carrera',
+			'Calendario'=> 'calendario',
 			'Fotos' => 'foto',
+			'Galeria'=> 'galeria',
 			'Videos' => 'video',
 			'Usuarios'=>'usuario',
 			'Login'=>'login',
@@ -49,6 +53,12 @@ class Controller extends BasicController{
 			break;
 		case 'foto':
 			$object = new Foto;
+			break;
+			case 'galeria':
+			$object = new Galeria; 
+			break;
+		case 'calendario':
+			$object = new Calendario; 
 			break;
 		case 'video':
 			$object = new Video;

@@ -3,7 +3,7 @@
 <table border="0" width="100%">
 <tr>
 {foreach from=$opciones key=title item=page} 
-   <td> 
+   <td id="celdaDelMenu"> 
 		<a href="{$SCRIPT_NAME}?view={$page}"> 
 			{$title}
 		</a> 
