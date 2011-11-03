@@ -22,9 +22,9 @@ class Galeria extends MasterTable{
 		case 'foto':
 			$this->tpl->assign('foto', 
 					$this->getFoto(
-						"gravitylandou@gmail.com", 
-						"gravitylandourense", 
-						"Carreras",
+						"aglcarrilanas@gmail.com", 
+						"noviembre11", 
+						"images",
 						$_REQUEST['fotoId']
 					));
 			$this->tpl->display('foto.tpl');
@@ -32,9 +32,9 @@ class Galeria extends MasterTable{
 		default:
 			$this->tpl->assign('fotos', 
 					$this->getAlbum(
-						"gravitylandou@gmail.com", 
-						"gravitylandourense", 
-						"Carreras"
+						"aglcarrilanas@gmail.com", 
+						"noviembre11", 
+						"images"
 					));
 			$this->tpl->display('galeria.tpl');
 			break;
