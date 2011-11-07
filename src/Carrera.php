@@ -8,9 +8,8 @@ class Carrera extends MasterTable{
 				'fecha', 
 				'distancia', 
 				'mapaRecorrido', 
-				'comoLlegar',
-				'prediccionTiempo',
-				'comentario'
+				'nombre'
+				
 				
 		);
 		$this->level = 1;
@@ -33,11 +32,9 @@ class Carrera extends MasterTable{
 				{"type":"text",		"display": "Lugar",             "name" : "lugar",           "width" : 150 },
 				{"type":"date",		"display": "Fecha",             "name" : "fecha",           "width" : 250 },
 				{"type":"text",		"display": "Distancia",         "name" : "distancia",       "width" : 250 },
-				{"type":"image",	"display": "Mapa recorrido",    "name" : "mapaRecorrido",   "width" : 250 },
-				{"type":"text",		"display": "Como llegar",       "name" : "comoLlegar",      "width" : 250 },
-				{"type":"text",		"display": "Prediccion tiempo", "name" : "prediccionTiempo","width" : 250 },
-				{"type":"textarea", "display": "Comentario",        "name" : "comentario",      "width" : 250 }
-			]
+				{"type":"image",	"display": "Mapa",				"name" : "mapaRecorrido",   "width" : 250 },
+				{"type":"text",		"display": "nombre",       		"name" : "nombre",      	"width" : 250 }
+				
 		}';
 		return $ret;
 	}
@@ -48,15 +45,8 @@ class Carrera extends MasterTable{
 				{"type":"date",  "display": "Fecha",    	     "value" : "fecha",             "width" : 250 },
 				{"type":"text",  "display": "Distancia",         "value" : "distancia",    	    "width" : 25 },
 				{"type":"image", "display": "Mapa recorrido",    "value" : "mapaRecorrido",     "width" : 25 },
-				{"type":"text",  "display": "Como llegar",       "value" : "comoLlegar",   	    "width" : 25 },
-				{"type":"text",  "display": "Prediccion tiempo", "value" : "prediccionTiempo",  "width" : 25 },
-				{ 
-					"type"     : "textarea"     , 
-					"display"  : "Comentarios"  ,     
-					"value"    : "comentario"   ,     
-					"width"    : 50             , 
-					"height"   : 2 
-				}
+				{"type":"text",  "display": "nombre",       	 "value" : "nombre",   	    	"width" : 25 }
+				
 				
 			]
 		}';

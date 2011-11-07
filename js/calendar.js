@@ -12,7 +12,7 @@ function init() {
  * Loads the Google Developers Event Calendar
  */
 function loadDeveloperCalendar() {
-  loadCalendarByAddress('gravitylandou@gmail.com');
+  loadCalendarByAddress('aglcarrilanas@gmail.com');
 }
 
 /**

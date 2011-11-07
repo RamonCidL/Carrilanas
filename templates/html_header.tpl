@@ -9,9 +9,9 @@
 		}
 	</style>
 	<script type="text/javascript" src="js/funciones.js"></script>
-	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAROMagOEmVvKxc67sTMKv9BT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTBexYVxC2gu8hVZn7bIELZTdjrxQ"> </script>
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAQgMnm8r1NZFeMtEhDAX1JhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSCllKi4xVk54SXTcpkm-iP1Xal7w"> </script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 <script type="text/javascript">
-	loadCalendar('https://www.google.com/calendar/feeds/gravitylandou@gmail.com/public/full');
+	loadCalendar('https://www.google.com/calendar/feeds/aglcarrilanas@gmail.com/public/full');
 </script>
 </head>
