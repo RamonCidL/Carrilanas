@@ -13,13 +13,13 @@ Zend_Loader::loadClass('Zend_Gdata_App_Extension_Category');
 class CarreraConInscripciones extends MasterTable{
 	function __construct() {
 		$this->table        = 'carrera';
-		$this->detailView   = 'inscrito';
+		$this->detailView   = 'inscripcion';
 		$this->fields= array(
 				'nombre', 
 				'fecha', 
 				'lugar', 
 				'distancia', 
-				'mapaRecorrido' 
+				'mapa' 
 		);
 		$this->level = 10;
 		parent::__construct();
@@ -35,7 +35,7 @@ class CarreraConInscripciones extends MasterTable{
 				{"type":"text", "display": "Fecha",    "name" : "fecha",    "width" : 25 },
 				{"type":"text", "display": "Lugar",    "name" : "lugar",    "width" : 50 },
 				{"type":"text", "display": "Distancia","name" : "distancia","width" : 5  }, 
-				{"type":"text", "display": "Mapa",     "name" : "mapaRecorrido",     "width" : 50 } 
+				{"type":"text", "display": "Mapa",     "name" : "mapa",     "width" : 50 } 
 			]
 		}';
 	}
@@ -44,9 +44,9 @@ class CarreraConInscripciones extends MasterTable{
 			"colModel" : [
 				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
 				{"type":"date", "display": "Fecha",    "value" : "fecha",    "width" : 250 },
-				{"type":"text", "display": "Lugar",    "value" : "lugar",    "width" : 150 },
+				{"type":"mapa", "display": "Lugar",    "value" : "lugar",    "width" : 150 },
 				{"type":"text", "display": "Distancia","value" : "distancia","width" : 150 },
-				{"type":"text", "display": "Mapa",     "value" : "mapaRecorrido", "width" : 150 } 
+				{"type":"text", "display": "Mapa",     "value" : "mapa",     "width" : 150 } 
 			]
 		}';
 	}
@@ -86,7 +86,7 @@ class CarreraConInscripciones extends MasterTable{
 	function createEvent ($client, $title = 'Tennis with Beth',
 			$desc='Meet for a quick lesson', $where = 'On the courts',
 			$startDate = '2008-01-20', $startTime = '10:00',
-			$endDate = '2008-01-20', $endTime = '11:00', $tzOffset = '+1') {
+			$endDate = '2008-01-20', $endTime = '11:00', $tzOffset = '-08') {
 
 		$gc = new Zend_Gdata_Calendar($client);
 		$newEntry = $gc->newEventEntry();

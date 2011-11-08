@@ -1,11 +1,11 @@
 <?php
 require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Equipo.php');
-require(SRC_DIR . 'Carrera.php');
 require(SRC_DIR . 'Galeria.php');
 require(SRC_DIR . 'Miembro.php');
 require(SRC_DIR . 'Calendario.php');
 require(SRC_DIR . 'CarreraConInscripciones.php');
+require(SRC_DIR . 'CarreraConLlegadas.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
@@ -19,8 +19,8 @@ class Controller extends BasicController{
 			'Inicio'=>'inicio',
 			'Equipos'=>'equipo',
 			'Miembros' =>'miembro',
-			'Carreras' =>'carrera',
 			'Inscripciones'   => 'carreraConInscripciones',
+			'Clasificaciones' => 'carreraConLlegadas',
 			'Calendario'=> 'calendario',
 			'Fotos' => 'foto',
 			'Galeria'=> 'galeria',
@@ -44,12 +44,14 @@ class Controller extends BasicController{
 		case 'equipo':
 			$object = new Equipo;
 			break;
-		case 'carrera':
-			$object = new Carrera;
-			break;
 		case 'miembro':
 			$object = new Miembro;
 			break;
+		case 'carreraConInscripciones':
+			$object = new CarreraConInscripciones; 
+			break;
+		case 'carreraConLlegadas':
+			$object = new CarreraConLlegadas; 
 		case 'usuario':
 			$object = new Usuario; 
 			break;

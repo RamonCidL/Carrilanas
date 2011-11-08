@@ -16,7 +16,7 @@ class Equipo extends MasterTable{
 	}
 	function getTable(){
 		$ret = '{' ;
-		if($_SESSION['nivel'] > 5){
+		if($_SESSION['nivel_usuario'] > 5){
 			$ret .= ' "add"      : "true"';
 			$ret .= ',"edit"     : "true"';
 			$ret .= ',"delete"   : "true"';
