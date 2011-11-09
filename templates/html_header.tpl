@@ -11,7 +11,8 @@
 	<script type="text/javascript" src="js/funciones.js"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAQgMnm8r1NZFeMtEhDAX1JhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSCllKi4xVk54SXTcpkm-iP1Xal7w"> </script>
 	<script type="text/javascript" src="js/calendar.js"></script>
-<script type="text/javascript">
-	loadCalendar('https://www.google.com/calendar/feeds/aglcarrilanas@gmail.com/public/full');
-</script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+		loadCalendar('https://www.google.com/calendar/feeds/aglcarrilanas@gmail.com/public/full');
+	</script>
 </head>

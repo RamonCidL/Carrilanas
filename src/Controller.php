@@ -9,6 +9,7 @@ require(SRC_DIR . 'CarreraConLlegadas.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
+require(SRC_DIR . 'Inscripcion.php');
 require(SRC_DIR . 'Foto.php');
 require(SRC_DIR . 'Rechazo.php');
 require(SRC_DIR . 'video.php');
@@ -52,13 +53,14 @@ class Controller extends BasicController{
 			break;
 		case 'carreraConLlegadas':
 			$object = new CarreraConLlegadas; 
+			break;
 		case 'usuario':
 			$object = new Usuario; 
 			break;
 		case 'foto':
 			$object = new Foto;
 			break;
-			case 'galeria':
+		case 'galeria':
 			$object = new Galeria; 
 			break;
 		case 'calendario':
@@ -66,6 +68,9 @@ class Controller extends BasicController{
 			break;
 		case 'video':
 			$object = new Video;
+			break;
+		case 'inscripcion':
+			$object = new Inscripcion; 
 			break;
 		case 'login':
 			$object = new Logger; 

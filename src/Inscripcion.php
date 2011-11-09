@@ -38,7 +38,7 @@ class Inscripcion extends DetailTable{
 				{
 					"type"       :"external"           ,
 					"display"    :"Nombre carrera"     ,             
-					"database"   :"carrilanas"         ,
+					"database"   :"carrilana"         ,
 					"table"      :"carrera"            ,
 					"value_id"   :"carrera_id"         ,
 					"fieldRet"   :"nombre"
@@ -49,7 +49,7 @@ class Inscripcion extends DetailTable{
 					"value"      :"equipo_id"    ,
 					"width"      : 5             , 
 					"id"         :"idDelEquipo"  ,
-					"database"   :"carrilanas"   ,
+					"database"   :"carrilana"   ,
 					"table"      :"equipo"       ,
 					"fieldSearch":"nombre"       ,
 					"fieldRet"   :"id"
@@ -57,7 +57,7 @@ class Inscripcion extends DetailTable{
 				{
 					"type"       :"external"           ,
 					"display"    :"Nombre del usuario" ,             
-					"database"   :"carrilanas"         ,
+					"database"   :"carrilana"         ,
 					"table"      :"equipo"             ,
 					"value_id"   :"equipo_id"          ,
 					"fieldRet"   :"nombre"
@@ -68,7 +68,7 @@ class Inscripcion extends DetailTable{
 					"value"      :"categoria_id" ,
 					"width"      : 5             , 
 					"id"         :"categoria_id" ,
-					"database"   :"carrilanas"   ,
+					"database"   :"carrilana"   ,
 					"table"      :"categoria"    ,
 					"fieldSearch":"nombre"       ,
 					"fieldRet"   :"id"
@@ -76,7 +76,7 @@ class Inscripcion extends DetailTable{
 				{
 					"type"       :"external"           ,
 					"display"    :"Nombre del usuario" ,             
-					"database"   :"carrilanas"         ,
+					"database"   :"carrilana"         ,
 					"table"      :"categoria"            ,
 					"value_id"   :"categoria_id"         ,
 					"fieldRet"   :"nombre"

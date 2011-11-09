@@ -29,6 +29,11 @@
 			<select name="{$col->value|escape}">
 			   {html_options values=$col->options output=$col->options selected="{$formVars.{$col->value}|escape}"}
 		   </select>
+		{elseif $col->type eq "mapa"}
+			<div>
+			<input type="text" id="mapa" name="{$col->value}" value="{$formVars.{$col->value}|escape}" />
+			</div>
+			<div id="map_canvas" style="height:500px;width:500px"></div>
 		{elseif $col->type eq "masterId"}
 			<input type="hidden" name="{$col->value}" value="{$masterId}" />
 		{elseif $col->type eq "lookup"}
